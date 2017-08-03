@@ -1,0 +1,90 @@
+group = 'org.komunumo.web'
+version = '0.0.1-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:0.0.19"
+    }
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven { url "http://dl.bintray.com/kotlin/kotlinx.html" }
+    maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
+}
+
+apply plugin: 'kotlin2js'
+apply plugin: 'org.jetbrains.kotlin.frontend'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-test-js:$kotlin_version"
+    compile("org.jetbrains.kotlinx:kotlinx-html-js:$kotlinx_html_version")
+}
+
+kotlinFrontend {
+    sourceMaps = false
+
+    npm {
+        replaceVersion("kotlinx-html-js", kotlin_version)
+        replaceVersion("kotlinx-html-shared", kotlin_version)
+        replaceVersion("kotlin-js-library", kotlin_version)
+
+        dependency("react")
+        dependency("react-dom")
+        dependency("react-router")
+        dependency("react-markdown")
+
+        devDependency("css-loader")
+        devDependency("style-loader")
+        devDependency("babel-loader")
+        devDependency("babel-core")
+        devDependency("karma")
+    }
+
+    webpackBundle {
+        publicPath = "/"
+        port = 8080
+    }
+}
+
+compileKotlin2Js {
+    kotlinOptions.metaInfo = true
+    kotlinOptions.outputFile = "$project.buildDir.path/js/${project.name}.js"
+    kotlinOptions.sourceMap = true
+    kotlinOptions.moduleKind = 'commonjs'
+    kotlinOptions.main = "call"
+}
+
+sourceSets {
+    main.kotlin.srcDirs += "src"
+    main.resources.srcDirs += "resources"
+    main.output.resourcesDir = "build/js/resources"
+    test.kotlin.srcDirs += "test"
+    test.resources.srcDirs += "testResources"
+}
+
+task copyResources(type: Copy) {
+    from sourceSets.main.resources.srcDirs
+//    into sourceSets.main.output.resourcesDir
+    into file(buildDir.path + "/js")
+}
+
+afterEvaluate {
+    tasks.getByName("webpack-bundle") { dependsOn(copyResources) }
+    tasks.getByName("webpack-run") { dependsOn(copyResources) }
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
