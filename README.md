@@ -1,7 +1,7 @@
 *Komunumo Frontend*
 ===================
 
-[![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.carloscuesta.me)
+[![Stories in Ready](https://badge.waffle.io/komunumo/komunumo-frontend.png?label=ready&title=ready)](http://waffle.io/komunumo/komunumo-frontend) [![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.carloscuesta.me)
 
 **Open Source Community Manager**
 
@@ -16,4 +16,8 @@ You should have received a copy of the GNU Affero General Public License along w
 ## The Name
 
 *Komunumo* is an esperanto noun with a meaning of *community*.
+
+## Throughput
+
+[![Throughput Graph](https://graphs.waffle.io/komunumo/komunumo-frontend/throughput.svg)](https://waffle.io/komunumo/komunumo-frontend/metrics/throughput)
 
