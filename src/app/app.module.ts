@@ -11,17 +11,17 @@ import { DatePipe } from './pipes/date.pipe';
 import { TimePipe } from './pipes/time.pipe';
 
 @NgModule({
-  declarations: [
-  ],
-  imports: [
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
         AppComponent,
         EventsComponent,
         DatePipe,
         TimePipe
+    ],
+    imports: [
         BrowserModule,
         HttpModule
+    ],
     providers: [EventService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
