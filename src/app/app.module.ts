@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './components/app.component';
+import { DatePipe } from './pipes/date.pipe';
 
 @NgModule({
   declarations: [
