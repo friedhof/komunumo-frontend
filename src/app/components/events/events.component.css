@@ -1,0 +1,9 @@
+.event {
+    border: 1px solid grey;
+    box-shadow: 5px 5px 2px lightgrey;
+    margin-bottom: 1em;
+    margin-right: 1em;
+    padding: 1em;
+    vertical-align: top;
+    width: 30em;
+}

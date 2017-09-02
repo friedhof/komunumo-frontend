@@ -1,0 +1,14 @@
+<h2>Events</h2>
+
+<div *ngFor="let event of events" id="event_{{event.id}}" class="event">
+    <div>{{event.location}}</div>
+    <div>{{event.dateTime | date}}</div>
+    <div>{{event.dateTime | time}}</div>
+    <h3>{{event.title}}</h3>
+    <h4>{{event.subtitle}}</h4>
+    <div>Speaker: {{event.speaker}}</div>
+    <div>Company:</div>
+    <div>Keywords: {{event.tags}}</div>
+    <div>{{event.description}}</div>
+    <div><a href="#">More</a></div>
+</div>
