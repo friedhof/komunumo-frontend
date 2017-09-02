@@ -15,6 +15,8 @@ import { TimePipe } from './pipes/time.pipe';
     BrowserModule
   ],
   bootstrap: [AppComponent]
+        DatePipe,
+        TimePipe
     providers: [EventService],
 })
 export class AppModule { }
