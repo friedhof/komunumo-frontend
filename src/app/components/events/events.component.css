@@ -7,3 +7,20 @@
     vertical-align: top;
     width: 30em;
 }
+
+a.tag {
+    text-decoration: none;
+    color: #39739d;
+    background-color: #E1ECF4;
+    display: inline-block;
+    line-height: 1;
+    margin-right: 0.3em;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 5px;
+    transition: all .15s ease-in-out;
+}
+
+a.tag:hover {
+    background-color: #cee0ed;
+}

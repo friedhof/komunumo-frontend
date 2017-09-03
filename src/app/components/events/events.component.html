@@ -8,7 +8,7 @@
     <h4>{{event.subtitle}}</h4>
     <div>Speaker: {{event.speaker}}</div>
     <div>Company:</div>
-    <div>Keywords: {{event.tags}}</div>
+    <div>Keywords: <a *ngFor="let tag of event.tags" href="#{{tag}}" class="tag">{{tag}}</a></div>
     <div>{{event.description}}</div>
     <div><a href="#">More</a></div>
 </div>
